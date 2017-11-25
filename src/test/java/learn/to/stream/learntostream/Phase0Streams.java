@@ -1,10 +1,8 @@
 package learn.to.stream.learntostream;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
@@ -13,8 +11,15 @@ import java.util.stream.LongStream;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
+/**
+ * Counting Streams
+ * Summing Streams
+ * Distinct, Skip, Limit
+ * Streams of Integer, Long, Double
+ * Streams from arrays
+ */
 public class Phase0Streams {
-  public final int FIX_ME = -1;
+  private final int FIX_ME = -1;
 
   // Getting Started
   @Test
@@ -89,6 +94,7 @@ public class Phase0Streams {
 
   }
 
+  // you do the math...
   @Test
   public void stream06() {
     assertThat(IntStream.of(20,21).sum(), is(FIX_ME));
@@ -106,6 +112,11 @@ public class Phase0Streams {
     // you can stream characters in a string
     // ...but note that this returns an IntStream()
     assertThat("bolton".chars().count(), is(6L));
+
+    // And you can stream elements from an array
+    String[] words = {"taco","taco","taco","sushi"};
+    assertThat(Arrays.stream(words).count(), is(4L));
+    assertThat(Arrays.stream(words).distinct().count(), is(FIX_ME));
   }
 
   // Congratulations, you've completed Phase 0.
