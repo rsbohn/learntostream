@@ -185,7 +185,7 @@ public class Phase1Lambda {
     assertThat(lights.stream()
         .map(x -> x)
         .filter(Color.YELLOW::equals)
-        .count(), is(3L));
+        .count(), is(4L));
   }
 
   @Test
